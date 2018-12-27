@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import pandas as pd 
 
 ##ask initialization columns.
@@ -16,7 +17,8 @@ while  not done:
 		if promptIn == '0':
 			done = True
 			break
-		promptCols.append(promptIn)
+		else:
+			promptCols.append(promptIn)
 
 print("with the prompts done, heres what happens:")
 print("You're going to get prompted everday to update those prompts.")
@@ -32,4 +34,9 @@ for k in initialPromps.keys():
 print("great! Now theres a sample of your responses. Writing the csv now.")
 
 init = pd.DataFrame.from_dict(initialPromps)
+#init = init.drop(["Unnamed: 0"],axis=1)
+#hack to remove "Unnamed Bug"
 init.to_csv("data.csv")
+# el = pd.read_csv("data.csv")
+# el = el.drop(["Unnamed: 0"],axis=1)
+# el.to_csv("data.csv")

@@ -1,7 +1,8 @@
+#!/usr/bin/env python3
 import pandas as pd 
 
 print("Hello! Lets update!")
-DF = pd.read_csv("data.csv")
+DF = pd.read_csv("data.csv", index_col=0)
 
 response = []
 # loop through questions
