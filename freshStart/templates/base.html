@@ -1,0 +1,29 @@
+
+<html>
+    <head>
+        <title>{{ title }} - Microblog</title>
+    </head>
+    <body>
+        <h1>Hello, {{ user.username }}!</h1>
+
+		<div class='form-group' style="margin: auto">
+			<form method='POST'>
+			{%for f in form.fielders %}
+
+			{% if f.type in ['CSRFTokenField']%}
+				{{field()}}
+			{% else %}
+			<dt>{{ f.label }}</dt>
+			<dd>{{ f|safe}}</dd>
+			</dl>
+			{%endif%}
+
+			{%endfor%}
+
+		{{form.submit}}
+	</form>
+
+		</div>
+
+    </body>
+</html>
